@@ -1,0 +1,243 @@
+// *{
+// // margin: 0;
+// // padding: 0;
+// }
+
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@500&display=swap');
+@mixin cajas {
+    background-color: rgb(151, 222, 242);
+    border: 1.5px solid black;
+    height: 500px;
+    width: 30%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    // border-radius: 20px;
+}
+
+@mixin efecto {
+    img:hover{
+        -webkit-transform: scale(1.5);
+        transform: scale(1.5);
+    }
+}
+
+$colores: ( 
+    primary: rgb(127, 218, 232),
+    secondary: rgb(132, 242, 242),
+    sucess: rgb(110, 137, 235),
+    a:#2a7d7d,
+    b:rgb(2, 2, 74),
+    c:white
+);
+
+.flexbox-caja{
+    display: flex;
+    justify-content: space-around;
+    // border: 10px solid black;
+    flex-wrap: wrap;
+    border-radius: 20px;
+    // margin-top: 20px;
+    // margin-left: 100px;
+
+}
+
+// @mixin sizes {($width,$height,$bcolor)
+//     height:$height;
+//     width:$width;
+//     background-color:$bcolor;
+// } 
+// @mixin footer {
+//     background-color: #ffffff;
+//     background-image: linear-gradient(90deg, #ffffff 0%, #7fdae8 46%, #1df9b7 100%);
+//     text-align: center;
+//     color: #fff;
+//     font-family:'DynaPuff', cursive;
+//     padding: 20px;
+// }
+
+body{
+    width: 100%;
+    height: 100vh;
+
+header {
+    .navbar-brand{
+        text-shadow: 0 0 5px #333;
+        font-weight: bold;
+}
+
+    .navbar-brand::after{
+        content: "Todocell";
+}
+
+    .nav-link{
+    color:rgb(132, 242, 242) !important ;
+    text-transform: capitalize;
+    text-shadow: 0 0 5px #333;
+}
+
+.jumbotron{
+    background-image: url(img/logo.jpg);
+    background-size: cover;
+    background-position: top;
+    color: rgb(132, 242, 242);
+    border-radius: 0;
+    margin: 0;
+    text-shadow: 0 0 5px #fff;
+}
+
+.btn-primary{
+    background-color:rgb(29, 249, 183) ;
+}
+
+.btn-primary:hover{
+    background-color:rgb(42, 125, 125) ;
+}
+
+    .btn {
+        margin: 5px 5px 5px 5px ;
+        color: black;
+        background-color: map-get($map: $colores, $key: 'c');
+}
+
+.flex-contenedor{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+}
+
+main{
+
+    h2{
+        // background-color: rgb(151, 222, 242);
+        background-color: map-get($map: $colores, $key:'secondary' );
+        text-align: center;
+        text-transform: capitalize;
+        color: #fff;
+        padding: 10px;
+        margin: 0;
+        // border-radius: 20px;
+    }
+
+    .al{
+        background-image: url(multimedia/android-vs-ios-bg.png);
+        background-size: cover;
+        background-position: center;
+        height: 400px;
+    }
+
+    .ar{
+
+        
+            h3{
+                text-align: center;
+                // color: #2a7d7d;
+                color: map-get($map: $colores, $key:'a' ) ;
+            }
+            .ar p::selection{
+                color: rgb(132, 242, 242);
+                background-color: #70e7bf ;
+            }
+
+            
+
+    }
+
+    .productos{
+        height: auto;
+        // background-color: rgb(110, 137, 235);
+        background-color: map-get($map: $colores, $key: 'sucess');
+    }
+
+    .btn{
+        margin-top: 5px;
+        background-color: rgb(2, 2, 74);
+        
+    }
+
+    .centrar{
+        margin:auto;
+        display:block;
+}
+
+.cartas{
+    display: flex;
+}
+.cajaIphone{
+    // img:hover{
+    //     -webkit-transform: scale(1.5);
+    //     transform: scale(1.5);
+    // }
+    @include efecto();
+    min-width: 300px;
+}
+.cajaMotorola{
+    @include efecto();
+    min-width: 300px;
+}
+.cajaSamsung{
+    @include efecto();
+    min-width: 300px;
+}
+.cajaLg{
+    @include efecto();
+    min-width: 300px;
+}
+.imagenEfecto{
+    cursor:pointer;
+}
+}
+
+
+footer{
+    background-color: #ffffff;
+    background-image: linear-gradient(90deg, #ffffff 0%, #7fdae8 46%, #1df9b7 100%);
+    text-align: center;
+    color: #fff;
+    font-family:'DynaPuff', cursive;
+    padding: 20px;
+}
+
+    .redes{
+        font-size: 30px;
+        letter-spacing: 10px;
+        
+        .fa-brands{
+            color: blue;
+        }
+    
+}
+
+}
+
+p::first-letter{
+    color: springgreen;
+}
+
+.d-flex{
+
+    .flex-contenedor{
+        @extend .flexbox-caja;
+        // margin: 10px solid black;
+
+        // display: flex;
+        // margin-top: 20px;
+        //     margin-left: 100px;
+
+        .cajaSamsung{
+            @include cajas;
+            
+        }
+        .cajaIphone{
+            @include cajas;
+        }
+        .cajaMotorola{
+            @include cajas;
+        }
+        .cajaLg{
+            @include cajas;
+        }
+    }
+}
+
+
