@@ -4,19 +4,17 @@ let carrito=[];
 const contenedorProductos = document.getElementById("tarjetas");
 const contenedorCarrito = document.getElementById("carrito-contenedor");
 
-//const contenedorProductos = document.getElementById("contenedor-productos");
-//const contenedorCarrito = document.getElementById("carrito-contenedor");
+
 const botonVaciar = document.getElementById("vaciar-carrito");
 const contadorCarrito = document.getElementById("contadorCarrito");
 const precioTotall = document.getElementById("precioTotal");
 
 
-//operador ternario
-//carrito? console.log("existe carrito"):localStorage.setItem("productos",JSON.stringify(stockProductos));
+
 localStorage.setItem("productos",JSON.stringify(stockProductos));
 
 //escribo el localStorage con los productos de productos.js
-//console.log(localStorage.getItem("productos"))
+
 
 //leo el local localStorage del navegador que contiene los productos 
 let ListadoDeMisProductosStock = JSON.parse(localStorage.getItem("productos"))
@@ -52,7 +50,7 @@ const mostrarProductos = (array) => {
 }
 
 const actualizarCarrito = () => {
-  //localStorage.clear();
+  
   contenedorCarrito.innerHTML = "";
   /*esto duplicara la vista porque recorre el array desde cero en cada llamado,
   para que no pase eso, previamento limpiamos la vista del innerhtml*/
@@ -75,7 +73,7 @@ const actualizarCarrito = () => {
   localStorage.setItem("carritoComprass", JSON.stringify(carrito));
 
   let data = localStorage.getItem("carritoComprass");
-  console.log(JSON.parse(data));
+  
 
   /*cada vez que actualizo el DOM me fijo el tamaño total del array carritoo de esa manera se cuantos
   productos tengo seleccionados en pantalla */
@@ -89,8 +87,7 @@ const actualizarCarrito = () => {
 const agregarAlcarrito = (prodid) => {
   const item = ListadoDeMisProductosStock.find ((prod)=>prod.id===prodid)
   carrito.push(item);
-  //console.log("este es el contenido del carrito")
-  //console.log(carrito)
+  
 
   actualizarCarrito ()
 }
@@ -109,7 +106,7 @@ const eliminarDelcarrito = (prodid) => {
 
     //actualizar vuelve a recorrer el array carrito y lo dibuja en el DOM/
     actualizarCarrito();
-    console.log(carrito)
+   
 
 }
 
@@ -125,15 +122,14 @@ const filtrarProductos = () => {
     const value = filtrocategoria.value
     if (value === "all") {
 
-        //ListadoDeMisProductosStock
-        mostrarProductos(ListadoDeMisProductosStock)
-        //mostrarProductos(stockProductos)
+    mostrarProductos(ListadoDeMisProductosStock)
+       
     } else {
-        //ListadoDeMisProductosStock
+        
         const filtrado = ListadoDeMisProductosStock.filter((prod) => prod.tipo === value)
 
-        //const filtrado=stockProductos.filter((prod)=>prod.tipo===value)
-        console.log(filtrado)
+        
+        
         mostrarProductos(filtrado)
     }
 }
@@ -141,7 +137,7 @@ const filtrarProductos = () => {
 /*cada vez que detecta el evento change en el select html llamado filtroCategoria, llamara a la funcion filtrarProducto */
 filtrocategoria.addEventListener("change", () => {
     filtrarProductos();
-    //console.log(filtrocategoria.value);
+    
 })
 
 
@@ -151,7 +147,7 @@ filtrocategoria.addEventListener("change", () => {
 /****************************************** */
 
 botonVaciar.addEventListener('click', () => {
-  //carritoo=[]; --si a carrito lo asigno como let, para vaciarlo seria de esta manera
+  
   carrito.length = 0;/*de esta manera vacio el carrito */
 
 
@@ -166,8 +162,7 @@ const arr1 = [{categoria:"samsung"}]
 
 
 const arr2 =[...arr1,...carrito]
-//console.log("este es el contenido de spread")
-//console.log(arr2)
+
 
 
 
